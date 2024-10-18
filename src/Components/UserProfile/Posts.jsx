@@ -1,18 +1,11 @@
 import './Posts.scss';
-import profileIcon from '../../assets/react.svg';
+import profileIcon from '../../assets/svg/plus.svg';
 
 import { PostThumbnail } from './PostThumbnail';
 //data will be taken from State
-const data = [
-  profileIcon,
-  profileIcon,
-  profileIcon,
-  profileIcon,
-  profileIcon,
-  profileIcon,
-];
+const data = [];
 export const Posts = (props) => {
-  const currentPage = props.currentPage;
+  // const currentPage = props.currentPage;
   return (
     <div className='UserProfile-Posts'>
       {!data.length ? (
