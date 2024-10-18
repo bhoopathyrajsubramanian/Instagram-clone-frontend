@@ -1,0 +1,19 @@
+.UserProfile-Posts {
+  width: 1050px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 0px;
+  }
+  .no-posts {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+  }
+}
