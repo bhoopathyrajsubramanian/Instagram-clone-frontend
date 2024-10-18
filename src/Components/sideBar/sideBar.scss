@@ -1,0 +1,46 @@
+@import "../../theme.scss";
+@mixin place-content {
+  align-items: center;
+  justify-content: center;
+}
+.sidebar {
+  width: 360px;
+  height: 100%;
+  padding-left: 25px;
+  border-right: 1px solid $sidebar-border-color;
+
+  .sidebar-header {
+    height: 150px;
+    display: flex;
+    align-items: center;
+
+    .sidebar-header-logo {
+      height: 90px;
+      width: 170px;
+    }
+  }
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    width: 100%;
+    button {
+      background-color: transparent;
+      border: none;
+    }
+
+    .content-button {
+      display: flex;
+      width: 100%;
+      height: 90px;
+      align-items: center;
+      gap: 24px;
+      font-size: 20px;
+
+      .content-button-image {
+        width: 42px;
+        height: 42px;
+      }
+    }
+  }
+}

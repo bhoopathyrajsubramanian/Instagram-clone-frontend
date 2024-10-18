@@ -1,0 +1,80 @@
+.post {
+  height: 700px;
+  padding: 40px 80px;
+  flex: 1;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+
+  .post-header {
+    height: 60px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    .user-profile-photo {
+      margin-left: 20px;
+      height: 30px;
+      width: 30px;
+    }
+
+    .user-name {
+      font-size: 20px;
+      flex: 1;
+    }
+
+    .user-option {
+      height: 30px;
+      margin-right: 20px;
+    }
+  }
+  .post-image {
+    height: 500px;
+    flex: 1;
+  }
+  .post-footer {
+    flex: 1;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    .post-response-field {
+      height: 30px;
+      display: flex;
+
+      .post-response {
+        display: flex;
+        height: 50px;
+        gap: 24px;
+        flex: 1;
+        .response-image {
+          height: 40px;
+          width: 40px;
+        }
+      }
+      .save-post-button {
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .post-caption-field {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      .user-name-caption {
+        font-size: 20px;
+      }
+    }
+  }
+  button {
+    background-color: transparent;
+    border-style: none;
+  }
+  .post-comments {
+    height: 30px;
+    text-align: start;
+    width: 170px;
+    font-size: 16px;
+  }
+}
