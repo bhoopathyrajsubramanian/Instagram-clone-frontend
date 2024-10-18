@@ -1,6 +1,6 @@
-import React from "react";
-import "./App.scss";
-import { FeedPage } from "./pages/feedPage/feedPage";
+import React from 'react';
+import './App.scss';
+import { FeedPage } from './pages/feedPage/feedPage';
 
 
 const App = () => {
@@ -12,3 +12,8 @@ const App = () => {
 };
 
 export default App;
+
+
+//  <>
+//    <img src={`data:image/jpeg;base64,${data}`} />
+//  </>;

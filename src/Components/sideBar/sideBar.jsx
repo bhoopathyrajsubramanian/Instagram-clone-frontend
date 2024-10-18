@@ -1,8 +1,7 @@
-import React from "react";
-import logo from "../../assets/images/logo.svg";
-import { contentData } from "./sideBarData";
-import SideBarButton from "./button";
-import './sideBar.scss'
+import logo from '../../assets/images/logo.svg';
+import { contentData } from './sideBarData';
+import SideBarButton from './button';
+import './sideBar.scss';
 
 const SideBar = () => {
   return (
@@ -12,7 +11,7 @@ const SideBar = () => {
       </div>
       <div className="sidebar-content">
         {contentData.map((content, key) => {
-          console.log(content)
+          console.log(content);
           return (
             <SideBarButton
               key={key}

@@ -1,10 +1,10 @@
-import React from "react";
-import home from "../../assets/images/home.svg";
-import { postData } from "./postdata";
-import saveIcon from '../../assets/images/save.svg'
-import userOptionIcon from '../../assets/images/userOption.svg'
+import React from 'react';
+import home from '../../assets/images/home.svg';
+import { postData } from './postdata';
+import saveIcon from '../../assets/images/save.svg';
+import userOptionIcon from '../../assets/images/userOption.svg';
 
-import "./post.scss";
+import './post.scss';
 
 export const Post = () => {
   return (

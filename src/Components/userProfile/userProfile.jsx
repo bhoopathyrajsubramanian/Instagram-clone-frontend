@@ -1,5 +1,5 @@
-import React from 'react'
-import likeIcon from '../../assets/svgs/notification'
+import React from 'react';
+import likeIcon from '../../assets/svgs/notification';
 
 export const userProfile = () => {
   return (
@@ -16,5 +16,5 @@ export const userProfile = () => {
         
 
     </div>
-  )
-}
+  );
+};

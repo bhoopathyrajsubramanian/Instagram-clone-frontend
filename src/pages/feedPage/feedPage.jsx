@@ -1,7 +1,7 @@
-import React from 'react'
-import { Feed } from '../../Components/feed/feed'
-import SideBar from "../../Components/sideBar/sideBar"
-import './feedPage.scss'
+import React from 'react';
+import { Feed } from '../../Components/feed/feed';
+import SideBar from '../../Components/sideBar/sideBar';
+import './feedPage.scss';
 
 
 export const FeedPage = () => {
@@ -10,5 +10,5 @@ export const FeedPage = () => {
     <SideBar />
     <Feed/>
    </div>
-  )
-}
+  );
+};

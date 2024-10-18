@@ -1,6 +1,6 @@
-import React from 'react'
-import { Post } from './post'
-import './feed.scss'
+import React from 'react';
+import { Post } from './post';
+import './feed.scss';
 
 export const Feed = () => {
   return (
@@ -9,5 +9,5 @@ export const Feed = () => {
         <Post/>
         <Post/>
     </div>
-  )
-}
+  );
+};
