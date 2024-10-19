@@ -7,15 +7,16 @@ const initialPostState = async () => {
     const response = await axios.get(
       `http://localhost:3030/users/${user_id}/posts`
     );
-    console.log(response.data);
-  } catch (error) { 
+    console.log(response.data.data);
+    return response.data.data;
+  } catch (error) {
     console.log(error);
   }
 };
-// initialPostState();
+const initialState = await initialPostState();
 const postSlice = createSlice({
   name: 'post',
-  initialState: initialPostState(),
+  initialState: initialState,
   reducers: {
     addPost: {
       reducer(state, action) {

@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.scss';
 import { FeedPage } from './pages/feedPage/feedPage';
 

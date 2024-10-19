@@ -1,15 +1,19 @@
 import './Userinfo.scss';
 import plus from '../../assets/images/plus.svg';
 import user from '../../assets/images/user.svg';
-import posts from '../../assets/images/posts.svg';
+import postsvg from '../../assets/images/posts.svg';
 import tagged from '../../assets/images/tagged.svg';
 import saved from '../../assets/images/saved.svg';
 import dots from '../../assets/images/dots-horizontal.svg';
 import { useState } from 'react';
 import { Posts } from './Posts.jsx';
+import { useSelector } from 'react-redux';
+
 export const Userinfo = () => {
   const count = 0;
   const [selected, setSelected] = useState('Posts');
+  const posts = useSelector((state) => state.post);
+  console.log(posts);
   return (
     <div className='UserProfile-Userinfo'>
       <div className='header'>
@@ -22,7 +26,7 @@ export const Userinfo = () => {
         <div className='profile-details'>
           <div className='profile-options'>
             <div className='options'>
-              <button>Myname_._</button>
+              <button>{posts[0].user.userName}</button>
             </div>
             <div className='options'>
               <button>Edit Profile</button>
@@ -71,7 +75,7 @@ export const Userinfo = () => {
             onClick={() => setSelected('Posts')}
           >
             {/* need to download svg */}
-            <img src={posts} alt='' height='20px' width='20px' />
+            <img src={postsvg} alt='' height='20px' width='20px' />
             Posts
           </button>
         </div>
@@ -97,7 +101,7 @@ export const Userinfo = () => {
         </div>
       </div>
       <div className='posts'>
-        <Posts currentPage={selected} />
+        <Posts currentPage={selected} posts={posts} />
       </div>
     </div>
   );

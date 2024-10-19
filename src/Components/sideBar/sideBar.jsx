@@ -11,7 +11,6 @@ const SideBar = () => {
       </div>
       <div className="sidebar-content">
         {contentData.map((content, key) => {
-          console.log(content);
           return (
             <SideBarButton
               key={key}

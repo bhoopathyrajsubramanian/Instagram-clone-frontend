@@ -1,13 +1,14 @@
-import React from 'react';
 import { Post } from './post';
 import './feed.scss';
+import { useSelector } from 'react-redux';
 
 export const Feed = () => {
+  const posts = useSelector((state) => state.post);
   return (
     <div className='feed'>
-        <Post/>
-        <Post/>
-        <Post/>
+      {posts.map((post, index) => {
+        return <Post key={index} postData={post}  />;
+      })}
     </div>
   );
 };

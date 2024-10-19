@@ -2,13 +2,13 @@
   height: 700px;
   padding: 40px 80px;
   flex: 1;
-  background-color: aquamarine;
+  // background-color: aquamarine;
   display: flex;
   flex-direction: column;
 
   .post-header {
     height: 60px;
-    background-color: aliceblue;
+    // background-color: aliceblue;
     display: flex;
     align-items: center;
     gap: 24px;
@@ -35,7 +35,7 @@
   }
   .post-footer {
     flex: 1;
-    background-color: aqua;
+    // background-color: aqua;
     display: flex;
     flex-direction: column;
     .post-response-field {
