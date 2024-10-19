@@ -1,0 +1,206 @@
+@import "../../theme.scss";
+
+html {
+  color: #262424;
+
+  .login {
+    background-color: $login-bg-color;
+    border-radius: 15px;
+    box-shadow: 0 0 20px $box-shadow-color;
+    width: 1322px;
+    height: 907px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 250px;
+    margin-top: 30px;
+
+    .login-page,
+    .login-image {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .login-page {
+      background-color: $loginpage-bg-color;
+    }
+
+    .login-image {
+      background-color: $loginpage-bg-color;
+    }
+
+    .inputbox {
+      margin-top: 32px;
+      width: 350px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: row;
+      border: 1px solid;
+      border-color: none;
+      border-radius: 10px;
+      height: 50px;
+      border-color: $inputbox-border-color;
+    }
+
+    .input-password,
+    .input-user {
+      flex-grow: 1;
+      text-align: right;
+    }
+
+    .login-page-border {
+      margin-top: 90px;
+    }
+
+    input {
+      border-style: none;
+      font-size: large;
+      
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+    }
+
+    .login-overlay2 {
+      margin-top: 40px;
+      position: relative;
+    }
+    
+    .login-image{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    input::placeholder {
+      position: relative;
+      font-size: 16px;
+      margin-right: 90px;
+      align-self: center;
+      font-style: oblique;
+      text-decoration: none;
+    }
+
+    .login-button {
+      left: 48px;
+      margin-left: 128px;
+      background-color: $button-bg-color;
+      padding: 20px 30px;
+      border-radius: 5px;
+      font-size: larger;
+      color: $loginpage-bg-color;
+      border: none;
+    }
+
+    .forgot-password,
+    .register-now {
+      position: relative;
+      top: 24px;
+      text-decoration: none;
+      color: $reg-color;
+    }
+
+    .forgot-password {
+      margin-left: 128px;
+    }
+
+    .register-now {
+      color: $reg-bg-color;
+    }
+
+    .social {
+      display: flex;
+      border: 2px groove;
+      margin-top: 32px;
+      border-radius: 10px;
+      color: $loginpage-bg-color;
+      width: 350px;
+      height: 60px;
+    }
+
+    .fa-brands {
+      display: inline-flex;
+      padding: 20px 20px;
+      position: absolute;
+      width: fit-content;
+      height: fit-content;
+      border-radius: 3px;
+    }
+
+    .socialp {
+      font-style: oblique;
+      margin-left: 64px;
+    }
+
+    .icon2 {
+      background-color: $icon-color;
+      height: 17px;
+    }
+
+    .facebook {
+      background-color: $icon-color;
+      border-color: $icon-color;
+    }
+
+    .icon3 {
+      background-color: $mail-bg-color;
+    }
+
+    .twitter {
+      background-color: $icon-color;
+      border-color: $icon-color;
+    }
+
+    .mail {
+      background-color: $mail-color;
+    }
+
+    .OR-container {
+      display: flex;
+      height: 50px;
+      width: 400px;
+      top: 20px;
+      margin-left: -20px;
+      margin-top: 40px;
+    }
+
+    .border {
+      width: 200px;
+      height: 2px;
+      color: $border-color;
+      border-top: 1px solid $border-line-color;
+      margin: 25px;
+    }
+
+    .reg-forgot-pass {
+      height: 50px;
+      width: 350px;
+      display: flex;
+    }
+
+    .img-users {
+      height: 20px;
+      width: 30px;
+      width: 5%;
+      padding: 15px 15px;
+      object-fit: fill;
+      border-style: none solid none none;
+      border-color: $inputbox-border-color;
+      color: $inputbox-border-color;
+      border-width: 1px;
+    }
+
+    .img-users-connect {
+      height: 30px;
+      width: 30px;
+      padding: 15px 15px;
+      object-fit: fill;
+      border-style: none solid none none;
+      border-color: $inputbox-border-color;
+      border-width: 1px;
+    }
+  }
+}
