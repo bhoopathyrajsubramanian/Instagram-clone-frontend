@@ -6,8 +6,7 @@ import './post.scss';
 import { useNavigate } from 'react-router-dom';
 
 export const Post = (props) => {
-  const navigate = useNavigate()
-  console.log(props.postData)
+  const navigate = useNavigate();
   return (
     <div className='post'>
       <div className='post-header'>
@@ -17,10 +16,21 @@ export const Post = (props) => {
           className='user-profile-photo'
           alt='user-profile-photo'
         ></img>
-        <button className='user-name' onClick={()=>{
-          navigate(`/user/${props.postData.user._id}`)
-        }}>{props.postData.user.userName}</button>
-        <img src={userOptionIcon} className='user-option' alt='user-option' />
+        <button
+          className='user-name'
+          onClick={() => {
+            navigate(`/user/${props.postData.user._id}`);
+          }}
+        >
+          {props.postData.user.userName}
+        </button>
+        <div
+          onClick={() => {
+            
+          }}
+        >
+          <img src={userOptionIcon} className='user-option' alt='user-option' />
+        </div>
       </div>
       <img
         src={`data:image/jpeg;base64,${props.postData.postFile}`}

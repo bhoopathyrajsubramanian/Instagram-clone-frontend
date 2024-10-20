@@ -11,14 +11,4 @@ export function getCookie(name) {
   return null;
 }
 
-export const getUserInfo = async (user_id) => {
-  try {
-    const response = await axios.get(
-      `http://localhost:3030/users/${user_id}/posts`
-    );
-    const res = response.data.data;
-    return res;
-  } catch (error) {
-    console.log(error);
-  }
-};
+

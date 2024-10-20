@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from '../App.jsx';
 import { CommentPage } from '../pages/commentPage/commentPage.jsx';
 import Login from '../pages/LoginPage/login.jsx';
@@ -17,11 +17,11 @@ export const router = createBrowserRouter([
         element: <UserProfile />,
       },
       {
-        path: 'feed',
+        path: 'home',
         element: <Feed />,
       },
       {
-        path: 'newpost',
+        path: 'create',
         element: <NewPost />,
       },
     ],

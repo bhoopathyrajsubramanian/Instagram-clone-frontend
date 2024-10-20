@@ -1,23 +1,24 @@
-import './Userinfo.scss';
+import { useEffect, useState } from 'react';
+import { getCookie } from '../../helper.js';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
 import plus from '../../assets/images/plus.svg';
 import user from '../../assets/images/user.svg';
 import postsvg from '../../assets/images/posts.svg';
 import tagged from '../../assets/images/tagged.svg';
 import saved from '../../assets/images/saved.svg';
 import dots from '../../assets/images/dots-horizontal.svg';
-import { useEffect, useState } from 'react';
+
 import { Posts } from './Posts.jsx';
-import { useSelector } from 'react-redux';
-import { getCookie, getUserInfo } from '../../helper.js';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+
+import './Userinfo.scss';
 
 export const Userinfo = () => {
   const count = 0;
   const [selected, setSelected] = useState('Posts');
   const params = useParams();
   const [posts, setPosts] = useState([]);
-  // useState(useSelector((state) => state.userProfile));
   let user_id = getCookie('user_id');
   user_id = params.userid == user_id ? user_id : params.userid;
   useEffect(() => {
@@ -28,12 +29,7 @@ export const Userinfo = () => {
     } catch (error) {
       console.log(error);
     }
-    // getUserInfo(params.userid).then((res) => {
-    // data = res;
-    // });
-    // setPosts(data);
-  }, [params]);
-  console.log(posts);
+  }, [params.userid]);
   return (
     <div className='UserProfile-Userinfo'>
       <div className='header'>

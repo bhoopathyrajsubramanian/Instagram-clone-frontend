@@ -3,7 +3,10 @@ import './feed.scss';
 import { useSelector } from 'react-redux';
 
 export const Feed = () => {
-  const posts = useSelector((state) => state.feedPosts);
+  let posts = useSelector((state) => state.feedPosts);
+  const a = [...posts];
+  posts = a.reverse();
+  console.log(posts);
   return (
     <div className='feed'>
       {posts.map((post, index) => {
