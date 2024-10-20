@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 export const Userinfo = () => {
   const count = 0;
   const [selected, setSelected] = useState('Posts');
-  const posts = useSelector((state) => state.post);
+  const posts = useSelector((state) => state.userProfile);
   console.log(posts);
   return (
     <div className='UserProfile-Userinfo'>
