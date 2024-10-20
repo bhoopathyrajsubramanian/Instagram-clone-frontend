@@ -13,7 +13,6 @@ export const Userinfo = () => {
   const count = 0;
   const [selected, setSelected] = useState('Posts');
   const posts = useSelector((state) => state.userProfile);
-  console.log(posts);
   return (
     <div className='UserProfile-Userinfo'>
       <div className='header'>
@@ -38,12 +37,13 @@ export const Userinfo = () => {
               <button>
                 <img src={dots} alt='' height='30px' width='30px' />
               </button>
-              {/* Three Dots Icon */}
             </div>
           </div>
           <div className='followers-details '>
             <div className='options'>
-              <button>{count} posts</button>
+              <button>
+                {posts.length === 1 ? '1 post' : posts.length + ' posts'}
+              </button>
             </div>
             <div className='options'>
               <button>{count} followers</button>

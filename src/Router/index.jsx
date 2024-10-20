@@ -4,31 +4,33 @@ import { CommentPage } from '../pages/commentPage/commentPage.jsx';
 import Login from '../pages/LoginPage/login.jsx';
 import Register from '../pages/RegisterPage/register.jsx';
 import { UserProfile } from '../pages/UserProfile/Index.jsx';
+import { Feed } from '../Components/feed/feed.jsx';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    // import { Outlet } from "react-router-dom";
-    // children: [
-    //   {
-    //      path: "user/:userid",
-    //     element: <UserProfile />,
-    //   },
-    // ],
-  },
-  {
-    path: 'user/:userid',
-    element: <UserProfile />,
+    children: [
+      {
+        path: 'user/:userid',
+        element: <UserProfile />,
+      },
+      {
+        path: 'feed',
+        element: <Feed />,
+      },
+    ],
   },
   {
     path: 'login',
-    element: <Login/>
-  },{
-    path:'register',
-    element:<Register/>
-  },{
-    path:'comment',
-    element:<CommentPage/>
-  }
+    element: <Login />,
+  },
+  {
+    path: 'register',
+    element: <Register />,
+  },
+  {
+    path: 'comment',
+    element: <CommentPage />,
+  },
 ]);
