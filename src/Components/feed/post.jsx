@@ -3,8 +3,11 @@ import saveIcon from '../../assets/images/save.svg';
 import userOptionIcon from '../../assets/images/userOption.svg';
 
 import './post.scss';
+import { useNavigate } from 'react-router-dom';
 
 export const Post = (props) => {
+  const navigate = useNavigate()
+  console.log(props.postData)
   return (
     <div className='post'>
       <div className='post-header'>
@@ -14,7 +17,9 @@ export const Post = (props) => {
           className='user-profile-photo'
           alt='user-profile-photo'
         ></img>
-        <p className='user-name'>{props.postData.user.userName}</p>
+        <button className='user-name' onClick={()=>{
+          navigate(`/user/${props.postData.user._id}`)
+        }}>{props.postData.user.userName}</button>
         <img src={userOptionIcon} className='user-option' alt='user-option' />
       </div>
       <img

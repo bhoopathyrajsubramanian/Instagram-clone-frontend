@@ -5,14 +5,35 @@ import postsvg from '../../assets/images/posts.svg';
 import tagged from '../../assets/images/tagged.svg';
 import saved from '../../assets/images/saved.svg';
 import dots from '../../assets/images/dots-horizontal.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Posts } from './Posts.jsx';
 import { useSelector } from 'react-redux';
+import { getCookie, getUserInfo } from '../../helper.js';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 export const Userinfo = () => {
   const count = 0;
   const [selected, setSelected] = useState('Posts');
-  const posts = useSelector((state) => state.userProfile);
+  const params = useParams();
+  const [posts, setPosts] = useState([]);
+  // useState(useSelector((state) => state.userProfile));
+  let user_id = getCookie('user_id');
+  user_id = params.userid == user_id ? user_id : params.userid;
+  useEffect(() => {
+    try {
+      axios
+        .get(`http://localhost:3030/users/${user_id}/posts`)
+        .then((res) => setPosts(res.data.data));
+    } catch (error) {
+      console.log(error);
+    }
+    // getUserInfo(params.userid).then((res) => {
+    // data = res;
+    // });
+    // setPosts(data);
+  }, [params]);
+  console.log(posts);
   return (
     <div className='UserProfile-Userinfo'>
       <div className='header'>
@@ -25,7 +46,9 @@ export const Userinfo = () => {
         <div className='profile-details'>
           <div className='profile-options'>
             <div className='options'>
-              <button>{posts[0].user.userName}</button>
+              <button>
+                {/* {posts[0].user?.userName ? posts[0].user?.userName : ''} */}
+              </button>
             </div>
             <div className='options'>
               <button>Edit Profile</button>

@@ -5,6 +5,7 @@ import Login from '../pages/LoginPage/login.jsx';
 import Register from '../pages/RegisterPage/register.jsx';
 import { UserProfile } from '../pages/UserProfile/Index.jsx';
 import { Feed } from '../Components/feed/feed.jsx';
+import NewPost from '../pages/NewPost/Index.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: 'feed',
         element: <Feed />,
+      },
+      {
+        path: 'newpost',
+        element: <NewPost />,
       },
     ],
   },
