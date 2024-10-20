@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import plus from '../../assets/images/plus.svg';
-import user from '../../assets/images/user.svg';
+import userPicture from '../../assets/images/user.svg';
 import postsvg from '../../assets/images/posts.svg';
 import tagged from '../../assets/images/tagged.svg';
 import saved from '../../assets/images/saved.svg';
@@ -18,9 +18,20 @@ export const Userinfo = () => {
   const count = 0;
   const [selected, setSelected] = useState('Posts');
   const params = useParams();
-  const [posts, setPosts] = useState([]);
   let user_id = getCookie('user_id');
   user_id = params.userid == user_id ? user_id : params.userid;
+
+  const [user, setUser] = useState();
+  useEffect(() => {
+    try {
+      axios.get(`http://localhost:3030/users/${user_id}`).then((res) => {
+        setUser(res.data);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [user_id]);
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     try {
       axios
@@ -29,28 +40,34 @@ export const Userinfo = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [params.userid]);
+  }, [user_id]);
   return (
     <div className='UserProfile-Userinfo'>
       <div className='header'>
         {/* top division for user profile and followers */}
         <div className='profile'>
           <button>
-            <img src={user} alt='' height='120px' width='124px' />
+            <img src={userPicture} alt='' height='120px' width='124px' />
           </button>
         </div>
         <div className='profile-details'>
           <div className='profile-options'>
             <div className='options'>
-              <button>
-                {/* {posts[0].user?.userName ? posts[0].user?.userName : ''} */}
-              </button>
+              <button>{user?.userName}</button>
             </div>
             <div className='options'>
-              <button>Edit Profile</button>
+              {params.userid == getCookie('user_id') ? (
+                <button>Edit Profile</button>
+              ) : (
+                <button>Follow</button>
+              )}
             </div>
             <div className='options'>
-              <button>View Archive</button>
+              {params.userid == getCookie('user_id') ? (
+                <button>View Archive</button>
+              ) : (
+                <></>
+              )}
             </div>
             <div className='options'>
               <button>

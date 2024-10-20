@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import App from '../App.jsx';
 import { CommentPage } from '../pages/commentPage/commentPage.jsx';
 import Login from '../pages/LoginPage/login.jsx';

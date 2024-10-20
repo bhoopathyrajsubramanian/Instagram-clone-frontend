@@ -24,11 +24,7 @@ export const Post = (props) => {
         >
           {props.postData.user.userName}
         </button>
-        <div
-          onClick={() => {
-            
-          }}
-        >
+        <div onClick={() => {}}>
           <img src={userOptionIcon} className='user-option' alt='user-option' />
         </div>
       </div>
@@ -63,10 +59,19 @@ export const Post = (props) => {
           </div>
         </div>
         <div className='post-caption-field'>
-          <p className='user-name-caption'>{props.postData.user.userName}</p>
+          <button
+            className='user-name-caption'
+            onClick={() => {
+              navigate(`/user/${props.postData.user._id}`);
+            }}
+          >
+            {props.postData.user.userName}
+          </button>
           <p className='post-caption'>{props.postData.caption}</p>
         </div>
-        <button className='post-comments'>View all comments...</button>
+        <button className='post-comments' onClick={() => navigate('/comment')}>
+          View all comments...
+        </button>
       </div>
     </div>
   );
