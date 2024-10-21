@@ -1,4 +1,4 @@
-import messageIcon from "../../assets/images/message.svg";
+import messageIcon from '../../assets/images/message.svg';
 const followerData = [
   {
     image: messageIcon,

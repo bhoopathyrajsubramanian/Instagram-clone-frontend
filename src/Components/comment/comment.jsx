@@ -1,6 +1,18 @@
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import React from "react";
 import likeIcon from "../../assets/images/notification.svg";
 import "./comment.scss";
+=======
+import React from 'react';
+import exploreIcon from '../../assets/images/explore.svg';
+import './comment.scss';
+>>>>>>> Stashed changes
+=======
+import React from 'react';
+import exploreIcon from '../../assets/images/explore.svg';
+import './comment.scss';
+>>>>>>> Stashed changes
 
 export const Comment = (props) => {
   return (

@@ -1,20 +1,20 @@
-import keyIcon from "../../assets/images/key.png";
-import userIcon from "../../assets/images/user.png";
-import instagramIcon from "../../assets/images/logo.svg";
-import "./register.scss";
-import { useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import keyIcon from '../../assets/images/key.png';
+import userIcon from '../../assets/images/user.png';
+import instagramIcon from '../../assets/images/logo.svg';
+import './register.scss';
+import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
-  const [userName, setUserName] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
   const redirect = () => {
-    navigate("/login");
+    navigate('/login');
   };
   const registerUser = () => {
     const user = {
@@ -24,19 +24,19 @@ const Register = () => {
       email,
     };
 
-    axios.post("http://localhost:3030/users", user).then((response) => {
+    axios.post('http://localhost:3030/users', user).then((response) => {
       const userId = response.data._id;
 
       document.cookie = `user_id = ${userId}`;
       if (user.email && user.fullName && user.password && user.userName) {
-        navigate("/");
+        navigate('/');
       }
     });
 
-    setEmail("");
-    setFullName("");
-    setPassword("");
-    setUserName("");
+    setEmail('');
+    setFullName('');
+    setPassword('');
+    setUserName('');
   };
 
   return (

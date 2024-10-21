@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+ 
 import './Posts.scss';
 import profileIcon from '../../assets/images/plus.svg';
 

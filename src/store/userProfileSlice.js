@@ -11,7 +11,7 @@ const initialUserProfileState = async () => {
     return response.data.data;
   } catch (error) {
     console.log(error);
-    return []
+    return [];
   }
 };
 const initialState = await initialUserProfileState();

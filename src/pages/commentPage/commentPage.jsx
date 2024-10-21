@@ -81,6 +81,7 @@ export const CommentPage = () => {
   }
    
   return (
+<<<<<<< Updated upstream
     <div className="comment-page">
       <div className="comment-page-section">
         <div className="comment-page-image">
@@ -94,6 +95,22 @@ export const CommentPage = () => {
             <ProfilePicture name={user?.userName[0]} />
             <p className="profile-username">{user?.userName}</p>
             <img src={userOptionIcon} alt="username" className="user-option" />
+=======
+    <div className='comment-page'>
+      <div className='comment-page-section'>
+        <div className='comment-page-image'></div>
+        <div className='comment-section'>
+          <div className='comment-page-profile'>
+            <div className='profile-picture-section'>
+              <p className='profile-picture'>p</p>
+            </div>
+            <p className='profile-username'>name</p>
+            <img src={exploreIcon} alt='username' className='user-option' />
+            <span>{post?.user?.email}</span>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
           </div>
           <div className="comments">
             {comments.map((commentData, key) => {

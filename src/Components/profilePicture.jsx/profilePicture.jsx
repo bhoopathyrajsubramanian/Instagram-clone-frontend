@@ -1,5 +1,5 @@
-import React from "react";
-import "./profilePicture.scss";
+import React from 'react';
+import './profilePicture.scss';
 
 export const ProfilePicture = ({name}) => {
   return (
