@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export function getCookie(name) {
   let cookieArr = document.cookie.split('; ');
   for (let i = 0; i < cookieArr.length; i++) {
@@ -10,5 +8,3 @@ export function getCookie(name) {
   }
   return null;
 }
-
-

@@ -6,6 +6,7 @@ import Register from '../pages/RegisterPage/register.jsx';
 import { UserProfile } from '../pages/UserProfile/Index.jsx';
 import { Feed } from '../Components/feed/feed.jsx';
 import NewPost from '../pages/NewPost/Index.jsx';
+import { EditProfile } from '../pages/EditProfile/EditProfile.jsx';
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: 'create',
         element: <NewPost />,
+      },
+      {
+        path: 'editprofile',
+        element: <EditProfile />,
       },
     ],
   },

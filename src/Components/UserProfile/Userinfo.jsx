@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCookie } from '../../helper.js';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import plus from '../../assets/images/plus.svg';
@@ -13,11 +13,14 @@ import dots from '../../assets/images/dots-horizontal.svg';
 import { Posts } from './Posts.jsx';
 
 import './Userinfo.scss';
+import { DeleteProfile } from './DeleteProfile.jsx';
 
 export const Userinfo = () => {
   const count = 0;
+  const [optionsOpen, setOptionsOpen] = useState(false);
   const [selected, setSelected] = useState('Posts');
   const params = useParams();
+  const navigate = useNavigate();
   let user_id = getCookie('user_id');
   user_id = params.userid == user_id ? user_id : params.userid;
 
@@ -57,7 +60,13 @@ export const Userinfo = () => {
             </div>
             <div className='options'>
               {params.userid == getCookie('user_id') ? (
-                <button>Edit Profile</button>
+                <button
+                  onClick={() => {
+                    navigate('/editprofile');
+                  }}
+                >
+                  Edit Profile
+                </button>
               ) : (
                 <button>Follow</button>
               )}
@@ -70,10 +79,15 @@ export const Userinfo = () => {
               )}
             </div>
             <div className='options'>
-              <button>
+              <button
+                onClick={() => {
+                  setOptionsOpen(!optionsOpen);
+                }}
+              >
                 <img src={dots} alt='' height='30px' width='30px' />
               </button>
             </div>
+            {optionsOpen ? <DeleteProfile /> : <></>}
           </div>
           <div className='followers-details '>
             <div className='options'>
