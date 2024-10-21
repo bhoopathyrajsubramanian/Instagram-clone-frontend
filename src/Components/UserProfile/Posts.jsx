@@ -16,7 +16,14 @@ export const Posts = (props) => {
       ) : (
         <div className='posts-grid'>
           {props.posts.map((post, index) => {
-            return <PostThumbnail thumbnail={post.postFile} key={index} />;
+            return (
+              <PostThumbnail
+                userid={post.user._id}
+                postid={post._id}
+                thumbnail={post.postFile}
+                key={index}
+              />
+            );
           })}
         </div>
       )}

@@ -18,6 +18,10 @@ export const router = createBrowserRouter([
         element: <UserProfile />,
       },
       {
+        path: 'user/:userid/post/:postid/comments',
+        element: <CommentPage />,
+      },
+      {
         path: 'home',
         element: <Feed />,
       },
@@ -38,9 +42,5 @@ export const router = createBrowserRouter([
   {
     path: 'register',
     element: <Register />,
-  },
-  {
-    path: 'comment',
-    element: <CommentPage />,
   },
 ]);

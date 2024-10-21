@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCookie } from '../../helper.js';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import plus from '../../assets/images/plus.svg';
@@ -18,6 +18,7 @@ import { DeleteProfile } from './DeleteProfile.jsx';
 export const Userinfo = () => {
   const count = 0;
   const [optionsOpen, setOptionsOpen] = useState(false);
+
   const [selected, setSelected] = useState('Posts');
   const params = useParams();
   const navigate = useNavigate();

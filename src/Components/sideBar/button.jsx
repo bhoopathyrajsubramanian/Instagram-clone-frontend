@@ -1,27 +1,30 @@
-import { useNavigate } from "react-router-dom";
-import { ProfilePicture } from "../profilePicture.jsx/profilePicture";
-import "./button.scss";
+import { useNavigate } from 'react-router-dom';
+import { ProfilePicture } from '../profilePicture.jsx/profilePicture';
+import './button.scss';
 
 const SideBarButton = (props) => {
   const navigate = useNavigate();
   return (
     <div>
-      {props.name === "Profile" ? (
-        <button className="content-button profile-picture">
+      {props.name === 'Profile' ? (
+        <button
+          className='content-button profile-picture'
+          onClick={() => navigate(`/${props.route}`)}
+        >
           <ProfilePicture />
-          <p className="content-button-name">{props.name}</p>
+          <p className='content-button-name'>{props.name}</p>
         </button>
       ) : (
         <button
-          className="content-button"
+          className='content-button'
           onClick={() => navigate(`/${props.route}`)}
         >
           <img
             src={props.image}
             alt={props.name}
-            className="content-button-image"
+            className='content-button-image'
           />
-          <p className="cotent-button-name">{props.name}</p>
+          <span className='cotent-button-name'>{props.name}</span>
         </button>
       )}
     </div>
