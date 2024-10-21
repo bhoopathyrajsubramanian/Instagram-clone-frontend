@@ -5,6 +5,7 @@ import './sideBar.scss';
 
 const SideBar = () => {
   return (
+
     <div className='sidebar'>
       <div className='sidebar-header'>
         <img src={logo} alt='instagram logo' className='sidebar-header-logo' />
@@ -17,6 +18,7 @@ const SideBar = () => {
               route={content.route}
               name={content.name}
               image={content.image}
+              
             />
           );
         })}

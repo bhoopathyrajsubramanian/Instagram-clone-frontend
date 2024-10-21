@@ -5,7 +5,7 @@ import { createSlice } from '@reduxjs/toolkit';
 // const user_id = getCookie('user_id');
 const initialPostState = async () => {
   try {
-    const response = await axios.get(`http://localhost:3030/users/feed/posts`);
+    const response = await axios.get(`http://localhost:3030/users/671297a697b020dc73ca1b3b/posts`);
     return response.data.data;
   } catch (error) {
     console.log(error);

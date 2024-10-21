@@ -1,10 +1,10 @@
 import React from "react";
 import "./profilePicture.scss";
 
-export const ProfilePicture = () => {
+export const ProfilePicture = ({name}) => {
   return (
     <div className="profile-picture-section">
-      <p className="profile-picture">p</p>
+      <p className="profile-picture">{name}</p>
     </div>
   );
 };

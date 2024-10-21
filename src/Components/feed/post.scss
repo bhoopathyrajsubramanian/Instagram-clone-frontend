@@ -41,7 +41,8 @@
     display: flex;
     flex-direction: column;
     .post-response-field {
-      height: 30px;
+      height: 35px;
+      margin-top: 5px;
       display: flex;
 
       .post-response {
@@ -63,9 +64,12 @@
     .post-caption-field {
       display: flex;
       gap: 16px;
+
+      margin-top: 20px;
       align-items: center;
       .user-name-caption {
         font-size: 20px;
+        padding: 0;
       }
     }
   }

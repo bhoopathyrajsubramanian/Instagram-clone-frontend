@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getCookie } from '../../helper.js';
-import { Outlet, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 import plus from '../../assets/images/plus.svg';
