@@ -8,12 +8,20 @@ const initialPostState = async () => {
       `http://localhost:3030/users/${user_id}/posts`
     );
     console.log(response.data.data);
+    if(response.data.data)
+    {
     return response.data.data;
+    }
+    else{
+      return [];
+    }
   } catch (error) {
     console.log(error);
+    return [];
   }
 };
 const initialState = await initialPostState();
+
 const postSlice = createSlice({
   name: 'post',
   initialState: initialState,

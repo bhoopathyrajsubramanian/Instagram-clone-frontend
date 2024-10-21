@@ -1,6 +1,139 @@
+.comment-page {
+  background-color: aqua;
+  height: 100%;
+  width: 100%;
+  display: flex;
 
-.comment-page{
-    margin: 20px 50px;
-    background-color: aqua;
-    
+  .comment-page-section {
+    margin: 50px 120px;
+    flex: 1;
+    background-color: white;
+    display: flex;
+  }
+
+  .comment-page-image {
+    width: 40%;
+    flex: 1;
+    background-color: wheat;
+  }
+
+  .comment-section {
+    width: 60%;
+    flex: 1;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .comment-page-profile {
+    height: 90px;
+    display: flex;
+    background-color: white;
+    border-bottom: 1px solid slateblue;
+    align-items: center;
+
+    .profile-picture-section {
+      height: 50px;
+      width: 50px;
+      border: 2px solid black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 20px;
+    }
+  }
+
+  .profile-username {
+    margin-left: 20px;
+    flex: 1;
+    font-size: 24px;
+  }
+
+  .user-option {
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+  }
+
+  .comments {
+    flex: 1;
+    background-color: blanchedalmond;
+    overflow: hidden;
+  }
+
+  .comment-footer {
+    // background-color: aqua;
+    display: flex;
+    border-top: 2px solid sandybrown;
+    flex-direction: column;
+    .comment-response-field {
+      display: flex;
+
+      .comment-response {
+        margin-top: 20px;
+        display: flex;
+        height: 50px;
+        gap: 24px;
+        flex: 1;
+        .response-image {
+          height: 40px;
+          width: 40px;
+        }
+      }
+      .save-post-button {
+        margin-top: 20px;
+        height: 40px;
+        width: 40px;
+      }
+    }
+
+    .comment-caption-field {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      .likes {
+        font-size: 20px;
+        margin-left: 20px;
+      }
+    }
+  }
+  button {
+    background-color: transparent;
+    border-style: none;
+  }
+  .post-comments {
+    height: 30px;
+    text-align: start;
+    width: 170px;
+    font-size: 16px;
+  }
+
+  .add-comments-field {
+    height: 60px;
+    display: flex;
+    border-top: 1px solid;
+
+    .emoji-button {
+      width: 40px;
+      height: 40px;
+      align-self: center;
+      margin-left: 20px;
+    }
+
+    .add-comment {
+      flex: 1;
+      background-color: transparent;
+      border: none;
+    }
+    .add-comment:focus {
+      outline: none;
+      font-size: 20px;
+    }
+
+    .post-comment {
+      margin-right: 20px;
+      font-size: 20px;
+    }
+  }
 }
