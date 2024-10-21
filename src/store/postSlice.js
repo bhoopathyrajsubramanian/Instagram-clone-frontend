@@ -9,8 +9,10 @@ const initialPostState = async () => {
     return response.data.data;
   } catch (error) {
     console.log(error);
+    return [];
   }
 };
+
 const initialState = await initialPostState();
 const postSlice = createSlice({
   name: 'post',

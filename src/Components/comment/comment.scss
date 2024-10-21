@@ -1,0 +1,34 @@
+.comment {
+  height: 120px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+
+  .profile-picture-section {
+    height: 60px;
+    width: 60px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+  }
+
+  .username {
+    margin-left: 20px;
+    font-size: 24px;
+  }
+
+  .user-comment {
+    flex: 1;
+    margin-left: 20px;
+    font-size: 24px;
+  }
+
+  .user-option {
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+  }
+}
