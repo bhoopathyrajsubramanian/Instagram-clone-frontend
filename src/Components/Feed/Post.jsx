@@ -1,20 +1,49 @@
 import saveIcon from '../../assets/images/save.svg';
 import userOptionIcon from '../../assets/images/userOption.svg';
 import likeIcon from '../../assets/images/notification.svg';
+import likedIcon from '../../assets/images/likeRed.svg';
 import messageIcon from '../../assets/images/message.svg';
 import shareIcon from '../../assets/images/share.svg';
 
 import './post.scss';
 import { useNavigate } from 'react-router-dom';
 import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
+import { useState } from 'react';
+import axios from 'axios';
+import { getCookie } from '../../helper';
 
 export const Post = (props) => {
-  
+  const user = getCookie('user_id');
+  const [like, setLike] = useState(false);
+  // const [likesCount, setLikesCount] = useState(0);
+  // axios
+  //   .get(`http://localhost:3030/likes?post=${props.postData._id}`)
+  //   .then((res) => {
+  //     setLikesCount(res.data.data.length);
+  //   });
+  const addLike = () => {
+    if (!like) {
+      axios
+        .post(`http://localhost:3030/likes`, {
+          post: props.postData._id,
+          user: user,
+        })
+        .then((res) => {
+          setLike(!like);
+        });
+    } else {
+      // axios
+      //   .delete(`http://localhost:3030/likes?post=${props._id}&user=${user}`)
+      //   .then((res) => {
+      //   });
+      setLike(!like);
+    }
+  };
   const navigate = useNavigate();
   return (
     <div className='post'>
       <div className='post-header'>
-        <ProfilePicture name={props?.postData?.user?.userName} />
+        <ProfilePicture avatar={props?.postData?.user?.avatar} />
         <button
           className='user-name'
           onClick={() => {
@@ -30,8 +59,8 @@ export const Post = (props) => {
       <div className='post-image'>
         <img
           src={`data:image/jpeg;base64,${props.postData.postFile}`}
-          height='438px'
-          width='823px'
+          height='499px'
+          width='960px'
           alt='post-image'
         />
       </div>
@@ -39,8 +68,20 @@ export const Post = (props) => {
         <div className='post-response-field'>
           <div className='post-response'>
             <div className='response-image-field'>
-              <button>
-                <img src={likeIcon} alt='response' className='response-image' />
+              <button onClick={() => addLike()}>
+                {!like ? (
+                  <img
+                    src={likeIcon}
+                    alt='response'
+                    className='response-image'
+                  />
+                ) : (
+                  <img
+                    src={likedIcon}
+                    alt='response'
+                    className='response-image'
+                  />
+                )}
               </button>
             </div>
             <div className='response-image-field'>

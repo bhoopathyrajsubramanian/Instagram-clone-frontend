@@ -5,8 +5,10 @@ import { contentData } from './sideBarData';
 import SideBarButton from './button';
 import './sideBar.scss';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SideBar = () => {
+  const navigate = useNavigate();
   const [sidebarCollapse, setSidebarCollapse] = useState(false);
   return (
     <>
@@ -18,7 +20,11 @@ const SideBar = () => {
             </div>
             {contentData.map((content, key) => {
               return (
-                <button key={key} className='content-button' onClick={() => {}}>
+                <button
+                  key={key}
+                  className='content-button'
+                  onClick={() => navigate(`/${content.route}`)}
+                >
                   <img src={content.image} className='content-button-image' />
                 </button>
               );
