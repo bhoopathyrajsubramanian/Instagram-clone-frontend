@@ -4,6 +4,7 @@ import likeIcon from "../../assets/images/notification.svg";
 import likedIcon from "../../assets/images/likeRed.svg";
 import messageIcon from "../../assets/images/message.svg";
 import shareIcon from "../../assets/images/share.svg";
+import savedIcon from '../../assets/images/saved.svg'
 
 import "./post.scss";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +15,7 @@ import { getCookie } from "../../helper";
 
 export const Post = (props) => {
   const user = getCookie("user_id");
+  const[saved ,setSaved] = useState(false)
   const [like, setLike] = useState(false);
   // const [likesCount, setLikesCount] = useState(0);
   // axios
@@ -56,9 +58,9 @@ export const Post = (props) => {
         >
           {props.postData.user?.userName}
         </button>
-        <div onClick={() => {}}>
+        {/* <div onClick={() => {}}>
           <img src={userOptionIcon} className="user-option" alt="user-option" />
-        </div>
+        </div> */}
       </div>
       <div className="post-image">
         <img
@@ -115,9 +117,10 @@ export const Post = (props) => {
           <div className="post-save">
             <button>
               <img
-                src={saveIcon}
+                src={saved ? saveIcon : savedIcon}
                 alt="save-post-button"
                 className="save-post-button"
+                onClick={(e) => setSaved(!saved) }
               />
             </button>
           </div>
