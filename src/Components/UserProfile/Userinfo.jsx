@@ -47,11 +47,20 @@ export const Userinfo = () => {
   }, [user_id]);
   return (
     <div className='UserProfile-Userinfo'>
+      {optionsOpen && params.userid == getCookie('user_id') ? (
+        <DeleteProfile />
+      ) : (
+        <></>
+      )}
       <div className='header'>
         {/* top division for user profile and followers */}
         <div className='profile'>
           <button>
-            <img src={userPicture} alt='' height='120px' width='124px' />
+            <img
+              src={`data:image/jpeg;base64,${user?.avatar}`}
+              height='134px'
+              width='134px'
+            />
           </button>
         </div>
         <div className='profile-details'>
@@ -88,7 +97,6 @@ export const Userinfo = () => {
                 <img src={dots} alt='' height='30px' width='30px' />
               </button>
             </div>
-            {optionsOpen ? <DeleteProfile /> : <></>}
           </div>
           <div className='followers-details '>
             <div className='options'>
@@ -105,10 +113,10 @@ export const Userinfo = () => {
           </div>
           <div className='about-user'>
             <div className='name'>
-              <span>My Real Name</span>
+              <span> {user?.fullName}</span>
             </div>
             <div className='about-content'>
-              <span>My about content</span>
+              <span>{user?.about}</span>
             </div>
           </div>
         </div>
@@ -120,31 +128,22 @@ export const Userinfo = () => {
         </button>
       </div>
       <div className='post-options'>
-        <div className='options'>
-          <button
-            className={`${selected == 'Posts' ? 'active' : ''}`}
-            onClick={() => setSelected('Posts')}
-          >
+        <div className={`options ${selected == 'Posts' ? 'active' : ''}`}>
+          <button className='' onClick={() => setSelected('Posts')}>
             {/* need to download svg */}
             <img src={postsvg} alt='' height='20px' width='20px' />
             Posts
           </button>
         </div>
-        <div className='options'>
-          <button
-            className={`${selected == 'Saved' ? 'active' : ''}`}
-            onClick={() => setSelected('Saved')}
-          >
+        <div className={`options ${selected == 'Saved' ? 'active' : ''}`}>
+          <button onClick={() => setSelected('Saved')}>
             {/* need to download svg */}
             <img src={saved} alt='' height='20px' width='20px' />
             Saved
           </button>
         </div>
-        <div className='options'>
-          <button
-            className={`${selected == 'Tagged' ? 'active' : ''}`}
-            onClick={() => setSelected('Tagged')}
-          >
+        <div className={`options ${selected == 'Tagged' ? 'active' : ''}`}>
+          <button onClick={() => setSelected('Tagged')}>
             {/* need to download svg */}
             <img src={tagged} alt='' height='20px' width='20px' />
             Tagged

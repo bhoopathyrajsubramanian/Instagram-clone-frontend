@@ -2,11 +2,56 @@
   font-size: 16px;
 }
 
+@font-face {
+  font-family: 'Segoe UI';
+  src: local('Segoe'), url('./assets/fonts/segoeuithibd.tff') format('truetype');
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 200;
+  src: local('Segoe UI Light');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 300;
+  src: local('Segoe UI Semilight');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 400;
+  src: local('Segoe UI');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 600;
+  src: local('Segoe UI Semibold');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  font-weight: 700;
+  src: local('Segoe UI Bold');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Segoe UI Italic');
+}
+@font-face {
+  font-family: 'Segoe UI';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Segoe UI Bold Italic');
+}
+
 body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  #root{
+  #root {
+    font-family: 'Segoe UI';
+    font-weight: 400 ;
     height: 100%;
     width: 100%;
   }

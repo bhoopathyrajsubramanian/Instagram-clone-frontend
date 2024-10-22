@@ -1,5 +1,9 @@
 .UserProfile-PostThumbnail {
   height: 350px;
   width: 350px;
-  // border: 1px solid #dedede ;
+  gap: 3px;
+  border: 1px solid #dedede ;
+  img:hover{
+    cursor: pointer;
+  }
 }

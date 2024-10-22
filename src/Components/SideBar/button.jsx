@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { ProfilePicture } from '../profilePicture.jsx/profilePicture';
+import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
 import { useSelector } from 'react-redux';
 import './button.scss';
 
@@ -13,7 +13,7 @@ const SideBarButton = (props) => {
           className='content-button profile-picture'
           onClick={() => navigate(`/${props.route}`)}
         >
-          <ProfilePicture name = {userName}/>
+          <ProfilePicture name={userName} />
           <p className='content-button-name'>{props.name}</p>
         </button>
       ) : (

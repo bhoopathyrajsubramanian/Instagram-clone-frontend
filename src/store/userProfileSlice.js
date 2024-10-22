@@ -5,10 +5,8 @@ import { getCookie } from '../helper';
 const user_id = getCookie('user_id');
 const initialUserProfileState = async () => {
   try {
-    const response = await axios.get(
-      `http://localhost:3030/users/${user_id}/posts`
-    );
-    return response.data.data;
+    const response = await axios.get(`http://localhost:3030/users/${user_id}`);
+    return response.data;
   } catch (error) {
     console.log(error);
     return [];

@@ -28,6 +28,7 @@ export const DeleteProfile = () => {
         >
           Deactivate Account
         </button>
+        <button>Delete Account</button>
       </div>
     </div>
   );

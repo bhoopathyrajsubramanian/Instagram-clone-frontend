@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App.jsx';
-import { CommentPage } from '../pages/commentPage/commentPage.jsx';
-import Login from '../pages/LoginPage/login.jsx';
-import Register from '../pages/RegisterPage/register.jsx';
-import { UserProfile } from '../pages/UserProfile/Index.jsx';
-import { Feed } from '../Components/feed/feed.jsx';
-import NewPost from '../pages/NewPost/Index.jsx';
-import { EditProfile } from '../pages/EditProfile/EditProfile.jsx';
+import { CommentPage } from '../Pages/commentPage/commentPage.jsx';
+import Login from '../Pages/LoginPage/login.jsx';
+import Register from '../Pages/RegisterPage/register.jsx';
+import { UserProfile } from '../Pages/UserProfile/Index.jsx';
+import { Feed } from '../Components/Feed/Feed.jsx';
+import NewPost from '../Pages/NewPost/Index.jsx';
+import { EditProfile } from '../Pages/EditProfile/EditProfile.jsx';
 
 export const router = createBrowserRouter([
   {

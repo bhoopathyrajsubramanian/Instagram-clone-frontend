@@ -5,7 +5,6 @@ import reelsIcon from '../../assets/images/reels.svg';
 import messageIcon from '../../assets/images/messenger.svg';
 import notificationIcon from '../../assets/images/notification.svg';
 import createIcon from '../../assets/images/newPost.svg';
-import moreIcon from '../../assets/images/more.svg';
 import { getCookie } from '../../helper';
 
 const user_id = getCookie('user_id');
@@ -51,9 +50,5 @@ export const contentData = [
     image: createIcon,
     route: `user/${user_id}`,
   },
-  {
-    name: 'More',
-    image: moreIcon,
-    route: 'home',
-  },
+
 ];
