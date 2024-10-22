@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { getCookie } from '../../helper';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 export const NewPost = () => {
   const navigate = useNavigate();
@@ -36,28 +38,49 @@ export const NewPost = () => {
     }
   };
   return (
-    <div className='NewPost-NewPost'>
-      <div className='post-form'>
-        <div className='post-form-field'>
-          <label htmlFor='Caption'>Add Caption</label>
-          <input
-            type='text'
-            required='true'
-            placeholder='caption'
-            onChange={(e) => setCaption(e.target.value)}
-            name='caption'
-          />
-        </div>
-        <div className='post-form-field'>
-          {/* <label htmlFor='postFile'>Add File</label>
-          <input type='file' name='postFile' /> */}
-          <input type='file' onChange={handleFileChange} />
 
-          <div>{file && `${file.name} - ${file.type}`}</div>
+    <Form>
+<Form.Group className="mb-3" controlId="formBasicEmail">
+  <Form.Label>Add Caption</Form.Label>
+  <Form.Control type="email" placeholder="Enter email" />
+  <Form.Text className="text-muted">
+    We'll never share your email with anyone else.
+  </Form.Text>
+</Form.Group>
 
-          <button onClick={handleUploadClick}>Add Post</button>
-        </div>
-      </div>
-    </div>
+<Form.Group className="mb-3" controlId="formBasicPassword">
+  <Form.Label>Add file</Form.Label>
+  <Form.Control type="file" placeholder=" upload file" />
+</Form.Group>
+<Form.Group className="mb-3" controlId="formBasicCheckbox">
+</Form.Group>
+<Button variant="primary" type="submit">
+  Submit
+</Button>
+</Form>
+    // <div className='NewPost-NewPost'>
+    //   <div className='post-form'>
+    //     <div className='post-form-field'>
+    //       <label htmlFor='Caption'>Add Caption</label>
+    //       <input
+    //         type='text'
+    //         required='true'
+    //         placeholder='caption'
+    //         onChange={(e) => setCaption(e.target.value)}
+    //         name='caption'
+    //       />
+    //     </div>
+    //     <div className='post-form-field'>
+    //       {/* <label htmlFor='postFile'>Add File</label>
+    //       <input type='file' name='postFile' /> */}
+    //       <input type='file' onChange={handleFileChange} />
+
+    //       <div>{file && `${file.name} - ${file.type}`}</div>
+
+    //       <button onClick={handleUploadClick}>Add Post</button>
+    //     </div>
+    //   </div>
+    // </div>
+
   );
 };
