@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux";
-import "./profilePicture.scss";
+import { useSelector } from 'react-redux';
+import './profilePicture.scss';
 
 export const ProfilePicture = (props) => {
   const user = useSelector((state) => state.userProfile);
-  console.log(user);
   return (
     <div className="profile-picture-section">
       <img

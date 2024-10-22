@@ -1,28 +1,30 @@
-import { useParams } from "react-router-dom";
-import { Comment } from "../../Components/Comment/Comment";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { ProfilePicture } from "../../Components/ProfilePicture/ProfilePicture";
-import postIcon from "../../assets/images/posts.svg";
-import { Dropdown } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useParams } from 'react-router-dom';
+import { Comment } from '../../Components/Comment/Comment';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { ProfilePicture } from '../../Components/ProfilePicture/ProfilePicture';
+import postIcon from '../../assets/images/posts.svg';
+import { Dropdown } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-import likeIcon from "../../assets/images/notification.svg";
-import messageIcon from "../../assets/images/message.svg";
-import shareIcon from "../../assets/images/share.svg";
-import saveIcon from "../../assets/images/save.svg";
-import postSaveIcon from "../../assets/images/postSave.svg";
-import userOptionIcon from "../../assets/images/userOption.svg";
-import likedIcon from "../../assets/images/liked.svg";
+import likeIcon from '../../assets/images/notification.svg';
+import messageIcon from '../../assets/images/message.svg';
+import shareIcon from '../../assets/images/share.svg';
+import saveIcon from '../../assets/images/save.svg';
+import postSaveIcon from '../../assets/images/postSave.svg';
+import userOptionIcon from '../../assets/images/userOption.svg';
+import likedIcon from '../../assets/images/liked.svg';
 
-import "./commentPage.scss";
-import { getCookie } from "../../helper";
+import './commentPage.scss';
+import { getCookie } from '../../helper';
+import { useSelector } from 'react-redux';
 
 export const CommentPage = () => {
+  const userData = useSelector((state) => state.userProfile);
   const params = useParams();
   const [post, setPost] = useState({});
   const [user, setUser] = useState();
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const [loading, setLoading] = useState(true);
   const [postSaved, setPostSaved] = useState(false);
   const [toggle, setToggle] = useState(true);
@@ -31,7 +33,7 @@ export const CommentPage = () => {
 
   const user_id = params.userid;
   const navigate = useNavigate();
-  const userId = getCookie("user_id");
+  const userId = getCookie('user_id');
   const [like, setLike] = useState(false);
   const [likesCount, setLikesCount] = useState(0);
   axios.get(`http://localhost:3030/likes?post=${params.postid}`).then((res) => {
@@ -41,7 +43,7 @@ export const CommentPage = () => {
   const addLike = () => {
     if (!like) {
       axios
-        .post("http://localhost:3030/likes", {
+        .post('http://localhost:3030/likes', {
           post: params.postid,
           user: user,
         })
@@ -104,7 +106,7 @@ export const CommentPage = () => {
       axios
         .delete(`http://localhost:3030/users/${params.userid}`)
         .then((res) => {
-          navigate("/home");
+          navigate('/home');
         });
     } catch (err) {
       console.log(err);
@@ -112,18 +114,7 @@ export const CommentPage = () => {
   };
 
   const savePost = () => {
-    try {
-      axios
-        .patch(
-          `http://localhost:3030/users/${params.userid}/posts/${params.postid}`,
-          {
-            saved: !post.saved,
-          }
-        )
-        .then((res) => setPostSaved(!postSaved));
-    } catch (err) {
-      console.log(err);
-    }
+    setPostSaved(!postSaved);
   };
 
   const handleClick = () => {
@@ -138,7 +129,7 @@ export const CommentPage = () => {
           }
         )
         .then((res) => {
-          setComment("");
+          setComment('');
           setLoading(!loading);
         });
     } catch (error) {
@@ -147,30 +138,31 @@ export const CommentPage = () => {
   };
 
   const handleKeyEnter = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === 'Enter') {
       handleClick();
     }
   };
 
   return (
-    <div className="comment-page">
-      <div className="comment-page-section">
-        <div className="comment-page-image">
+    <div className='comment-page'>
+      <div className='comment-page-section'>
+        <div className='comment-page-image'>
           <img
             src={`data:image/jpeg;base64,${post?.postFile}`}
-            className="post"
+            // className='post'
+            height='100%'
           />
         </div>
-        <div className="comment-section">
-          <div className="comment-page-profile">
-            <ProfilePicture name={user?.userName[0]} />
-            <span className="profile-username">{user?.userName}</span>
+        <div className='comment-section'>
+          <div className='comment-page-profile'>
+            <ProfilePicture avatar={user?.avatar} />
+            <span className='profile-username'>{user?.userName}</span>
             <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle variant='success' id='dropdown-basic'>
                 <img
                   src={userOptionIcon}
-                  alt="username"
-                  className="user-option"
+                  alt='username'
+                  className='user-option'
                 />
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -190,27 +182,27 @@ export const CommentPage = () => {
               </Dropdown.Menu>
             </Dropdown>
           </div>
-          <div className="comments">
+          <div className='comments'>
             {comments.map((commentData, key) => {
               return (
                 <Comment
                   key={key}
                   comment={commentData?.comment}
-                  userName={user?.userName}
-                  image={user?.avatar}
+                  userName={userData?.userName}
+                  image={userData?.avatar}
                 />
               );
             })}
           </div>
-          <div className="comment-footer">
-            <div className="comment-response-field">
-              <div className="comment-response">
-                <div className="response-image-field">
-                  <button className="response-button">
+          <div className='comment-footer'>
+            <div className='comment-response-field'>
+              <div className='comment-response'>
+                <div className='response-image-field'>
+                  <button className='response-button'>
                     <img
                       src={toggle ? likeIcon : likedIcon}
-                      alt="response"
-                      className="response-image"
+                      alt='response'
+                      className='response-image'
                       onClick={() => {
                         setToggle(!toggle);
                         addLike();
@@ -218,46 +210,46 @@ export const CommentPage = () => {
                     />
                   </button>
                 </div>
-                <div className="response-image-field">
-                  <button className="response-button">
+                <div className='response-image-field'>
+                  <button className='response-button'>
                     <img
                       src={messageIcon}
-                      alt="response"
-                      className="response-image"
+                      alt='response'
+                      className='response-image'
                     />
                   </button>
                 </div>
-                <div className="response-image-field">
-                  <button className="response-button">
+                <div className='response-image-field'>
+                  <button className='response-button'>
                     <img
                       src={shareIcon}
-                      alt="response"
-                      className="response-image"
+                      alt='response'
+                      className='response-image'
                     />
                   </button>
                 </div>
               </div>
-              <div className="post-save" onClick={savePost}>
+              <div className='post-save' onClick={savePost}>
                 <img
                   src={postSaved ? postSaveIcon : saveIcon}
-                  alt="save-post-button"
-                  className="save-post-button"
+                  alt='save-post-button'
+                  className='save-post-button'
                 />
               </div>
             </div>
-            <div className="comment-caption-field">
-              <span className="likes">{likesCount} likes</span>
+            <div className='comment-caption-field'>
+              <span className='likes'>{likesCount} likes</span>
             </div>
-            <div className="add-comments-field">
-              <img src={postIcon} alt="emoji-button" className="emoji-button" />
+            <div className='add-comments-field'>
+              <img src={postIcon} alt='emoji-button' className='emoji-button' />
               <input
-                type="text"
-                className="add-comment"
+                type='text'
+                className='add-comment'
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 onKeyUp={(e) => handleKeyEnter(e)}
               />
-              <button className="post-comment" onClick={handleClick}>
+              <button className='post-comment' onClick={handleClick}>
                 Post
               </button>
             </div>

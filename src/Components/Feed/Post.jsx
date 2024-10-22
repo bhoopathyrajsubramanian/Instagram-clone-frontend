@@ -1,19 +1,19 @@
-import saveIcon from "../../assets/images/save.svg";
-import userOptionIcon from "../../assets/images/userOption.svg";
-import likeIcon from "../../assets/images/notification.svg";
-import likedIcon from "../../assets/images/likeRed.svg";
-import messageIcon from "../../assets/images/message.svg";
-import shareIcon from "../../assets/images/share.svg";
+import saveIcon from '../../assets/images/save.svg';
+import userOptionIcon from '../../assets/images/userOption.svg';
+import likeIcon from '../../assets/images/notification.svg';
+import likedIcon from '../../assets/images/likeRed.svg';
+import messageIcon from '../../assets/images/message.svg';
+import shareIcon from '../../assets/images/share.svg';
 
-import "./post.scss";
-import { useNavigate } from "react-router-dom";
-import { ProfilePicture } from "../ProfilePicture/ProfilePicture";
-import { useState } from "react";
-import axios from "axios";
-import { getCookie } from "../../helper";
+import './post.scss';
+import { useNavigate } from 'react-router-dom';
+import { ProfilePicture } from '../ProfilePicture/ProfilePicture';
+import { useState } from 'react';
+import axios from 'axios';
+import { getCookie } from '../../helper';
 
 export const Post = (props) => {
-  const user = getCookie("user_id");
+  const user = getCookie('user_id');
   const [like, setLike] = useState(false);
   // const [likesCount, setLikesCount] = useState(0);
   // axios
@@ -24,7 +24,7 @@ export const Post = (props) => {
   const addLike = () => {
     if (!like) {
       axios
-        .post("http://localhost:3030/likes", {
+        .post('http://localhost:3030/likes', {
           post: props.postData._id,
           user: user,
         })

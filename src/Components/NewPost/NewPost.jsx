@@ -1,16 +1,16 @@
-import { useState } from "react";
-import { getCookie } from "../../helper";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import "./newpost.scss";
+import { useState } from 'react';
+import { getCookie } from '../../helper';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import './newpost.scss';
 
 export const NewPost = () => {
   const navigate = useNavigate();
   const [file, setFile] = useState();
-  const [caption, setCaption] = useState("");
-  const user_id = getCookie("user_id");
+  const [caption, setCaption] = useState('');
+  const user_id = getCookie('user_id');
   const handleFileChange = (e) => {
     if (e.target.files) {
       setFile(e.target.files[0]);
@@ -29,13 +29,13 @@ export const NewPost = () => {
       },
       {
         headers: {
-          "Content-Type": "multipart/form-data",
+          'Content-Type': 'multipart/form-data',
         },
       }
     );
     if (data) {
-      alert("Post Added Successfully");
-      navigate("/home");
+      alert('Post Added Successfully');
+      navigate('/home');
     }
   };
   return (

@@ -13,7 +13,7 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
-  const [file,setFile] = useState()
+  const [file,setFile] = useState();
 
   const redirect = () => {
     navigate('/login');

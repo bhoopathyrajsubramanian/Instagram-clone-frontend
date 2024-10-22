@@ -25,9 +25,9 @@ const Login = () => {
 
     axios.get('http://localhost:3030/users').then((response) => {
       const users = response.data.data;
-      console.log(users)
+      console.log(users);
       const profileUser = users.filter((users) => users.email === user.email);
-      console.log(profileUser)
+      console.log(profileUser);
       document.cookie = `user_id = ${profileUser[0]?._id}`;
       if (profileUser.length) {
         navigate(`/user/${profileUser[0]?._id}`);

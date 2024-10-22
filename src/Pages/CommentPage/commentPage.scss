@@ -15,14 +15,13 @@
   }
 
   .comment-page-image {
-    width: 50%;
+    height: 100%;
+    padding: 10px 0;
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 5px;
-    .post {
-      height: 100%;
-      width: 100%;
-      padding: 10px 0;
-    }
   }
 
   .comment-section {
@@ -129,7 +128,6 @@
       .likes {
         font-size: 20px;
         margin-left: 10px;
-
       }
     }
   }

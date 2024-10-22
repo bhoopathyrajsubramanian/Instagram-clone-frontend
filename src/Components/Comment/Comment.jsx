@@ -1,8 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import likeIcon from "../../assets/images/notification.svg";
-import likedIcon from "../../assets/images/liked.svg";
-import "./comment.scss";
+import React from 'react';
+import { useState } from 'react';
+import likeIcon from '../../assets/images/notification.svg';
+import likedIcon from '../../assets/images/liked.svg';
+import './comment.scss';
 
 export const Comment = (props) => {
   const [toggle, setToggle] = useState(true);

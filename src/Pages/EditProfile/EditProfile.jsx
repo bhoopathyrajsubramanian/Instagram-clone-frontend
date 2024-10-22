@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { getCookie } from "../../helper";
-import axios from "axios";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import './editProfile.scss'
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { getCookie } from '../../helper';
+import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import './editProfile.scss';
+import { useNavigate } from 'react-router-dom';
 
 
 export const EditProfile = () => {
   const [userData, setUserData] = useState();
-  const user_id = getCookie("user_id");
-  const [userName, setUserName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const user_id = getCookie('user_id');
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   useEffect(() => {
     try {
@@ -25,9 +25,9 @@ export const EditProfile = () => {
   }, [user_id]);
   const confirmChanges = async () => {
     const patchData = {};
-    if (userName != "") patchData.userName = userName;
-    if (password != "") patchData.password = password;
-    if (email != "") patchData.email = email;
+    if (userName != '') patchData.userName = userName;
+    if (password != '') patchData.password = password;
+    if (email != '') patchData.email = email;
     console.log(patchData);
     const { data } = await axios.patch(
       `http://localhost:3030/users/${user_id}/`,
@@ -36,10 +36,10 @@ export const EditProfile = () => {
       }
     );
     if (data) {
-      alert("Changes Made Successfully");
-      navigate('/home')
+      alert('Changes Made Successfully');
+      navigate('/home');
     } else {
-      alert("Error");
+      alert('Error');
     }
   };
   return (
