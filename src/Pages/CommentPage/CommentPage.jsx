@@ -32,6 +32,33 @@ export const CommentPage = () => {
   const user_id = params.userid;
   const navigate = useNavigate();
   const userId = getCookie("user_id");
+  const [like, setLike] = useState(false);
+  const [likesCount, setLikesCount] = useState(0);
+  axios.get(`http://localhost:3030/likes?post=${params.postid}`).then((res) => {
+    console.log(res.data);
+    setLikesCount(res.data.data.length);
+  });
+  const addLike = () => {
+    if (!like) {
+      axios
+        .post("http://localhost:3030/likes", {
+          post: params.postid,
+          user: user,
+        })
+        .then((res) => {
+          setLike(!like);
+        });
+    } else {
+      axios
+        .delete(
+          `http://localhost:3030/likes?post=${params.postid}&user=${userId}`
+        )
+        .then((res) => {
+          console.log(res.data);
+        });
+      setLike(!like);
+    }
+  };
 
   useEffect(() => {
     try {
@@ -184,7 +211,10 @@ export const CommentPage = () => {
                       src={toggle ? likeIcon : likedIcon}
                       alt="response"
                       className="response-image"
-                      onClick={() => setToggle(!toggle)}
+                      onClick={() => {
+                        setToggle(!toggle);
+                        addLike();
+                      }}
                     />
                   </button>
                 </div>
@@ -216,7 +246,7 @@ export const CommentPage = () => {
               </div>
             </div>
             <div className="comment-caption-field">
-              <p className="likes">{post.like}</p>
+              <span className="likes">{likesCount} likes</span>
             </div>
             <div className="add-comments-field">
               <img src={postIcon} alt="emoji-button" className="emoji-button" />

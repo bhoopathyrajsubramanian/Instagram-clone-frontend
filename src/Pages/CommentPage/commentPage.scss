@@ -69,6 +69,7 @@
     margin-left: 20px;
     flex: 1;
     font-size: 24px;
+    font-weight: bold;
   }
   .profile-username {
     cursor: pointer;
@@ -102,9 +103,10 @@
       .comment-response {
         margin-top: 10px;
         display: flex;
-        height: 50px;
+        height: 30px;
         gap: 10px;
         flex: 1;
+        align-items: center;
         .response-image {
           height: 25px;
           width: 25px;
@@ -126,7 +128,8 @@
       align-items: center;
       .likes {
         font-size: 20px;
-        margin-left: 20px;
+        margin-left: 10px;
+
       }
     }
   }

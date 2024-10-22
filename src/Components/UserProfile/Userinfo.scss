@@ -1,6 +1,7 @@
 .UserProfile-Userinfo {
   display: flex;
   flex-direction: column;
+  overflow: scroll;
   //need to add it in the global scope
   .header {
     width: 960px;
@@ -88,6 +89,7 @@
           }
         }
       }
+  
 
       .about-user {
         margin: 0 0 20px;

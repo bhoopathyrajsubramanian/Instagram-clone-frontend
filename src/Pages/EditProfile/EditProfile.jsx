@@ -1,13 +1,19 @@
-import { useEffect, useState } from 'react';
-import { getCookie } from '../../helper';
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import { getCookie } from "../../helper";
+import axios from "axios";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import './editProfile.scss'
+import { useNavigate } from "react-router-dom";
+
 
 export const EditProfile = () => {
   const [userData, setUserData] = useState();
-  const user_id = getCookie('user_id');
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const user_id = getCookie("user_id");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     try {
       axios.get(`http://localhost:3030/users/${user_id}`).then((res) => {
@@ -19,9 +25,9 @@ export const EditProfile = () => {
   }, [user_id]);
   const confirmChanges = async () => {
     const patchData = {};
-    if (userName != '') patchData.userName = userName;
-    if (password != '') patchData.password = password;
-    if (email != '') patchData.email = email;
+    if (userName != "") patchData.userName = userName;
+    if (password != "") patchData.password = password;
+    if (email != "") patchData.email = email;
     console.log(patchData);
     const { data } = await axios.patch(
       `http://localhost:3030/users/${user_id}/`,
@@ -30,41 +36,79 @@ export const EditProfile = () => {
       }
     );
     if (data) {
-      alert('Changes Made Successfully');
+      alert("Changes Made Successfully");
+      navigate('/home')
     } else {
-      alert('Error');
+      alert("Error");
     }
   };
   return (
-    <div className='EditProfile-EditProfile'>
-      <div className='edit-profile-form'>
-        <div className='edit-profile-form-field'>
-          <label htmlFor='Caption'>Change UserName </label>
-          <input
-            type='text'
-            onChange={(e) => setUserName(e.target.value)}
-            name='userName'
-          />
-        </div>
-        <div className='edit-profile-form-field'>
-          <label htmlFor='email'> Change Email </label>
-          <input
-            type='text'
-            onChange={(e) => setEmail(e.target.value)}
-            name='email'
-          />
-        </div>
-        <div className='edit-profile-form-field'>
-          <label htmlFor='password'> Password </label>
-          <input
-            type='text'
-            placeholder='Enter New Password'
-            onChange={(e) => setPassword(e.target.value)}
-            name='password'
-          />
-        </div>
-        <button onClick={() => confirmChanges()}>Add Post</button>
-      </div>
-    </div>
+    <Form className="edit-post-section">
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Edit Email</Form.Label>
+        <Form.Control
+          type="email"
+          placeholder="Enter email"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Form.Text className="text-muted">
+          Enter the caption for the Post
+        </Form.Text>
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>userName</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="userName"
+          onChange={(e) => setUserName(e.target.value)}
+          value={userName}
+        />
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          type="password"
+          placeholder="password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
+      <Button variant="primary" type="submit" onClick={confirmChanges}>
+        Submit
+      </Button>
+    </Form>
+
+    // <div className='EditProfile-EditProfile'>
+    //   <div className='edit-profile-form'>
+    //     <div className='edit-profile-form-field'>
+    //       <label htmlFor='Caption'>Change UserName </label>
+    //       <input
+    //         type='text'
+    //         onChange={(e) => setUserName(e.target.value)}
+    //         name='userName'
+    //       />
+    //     </div>
+    //     <div className='edit-profile-form-field'>
+    //       <label htmlFor='email'> Change Email </label>
+    //       <input
+    //         type='text'
+    //         onChange={(e) => setEmail(e.target.value)}
+    //         name='email'
+    //       />
+    //     </div>
+    //     <div className='edit-profile-form-field'>
+    //       <label htmlFor='password'> Password </label>
+    //       <input
+    //         type='text'
+    //         placeholder='Enter New Password'
+    //         onChange={(e) => setPassword(e.target.value)}
+    //         name='password'
+    //       />
+    //     </div>
+    //     <button onClick={() => confirmChanges()}>Add Post</button>
+    //   </div>
+    // </div>
   );
 };

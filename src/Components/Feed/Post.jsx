@@ -134,7 +134,7 @@ export const Post = (props) => {
 
           <span className="post-caption">{props.postData.caption}</span>
         </div>
-        <button
+        {/* <button
           className="post-comments"
           onClick={() =>
             navigate(
@@ -143,8 +143,8 @@ export const Post = (props) => {
           }
         >
           View all comments...
-        </button>
-      </div>
+        </button> */}
+      </div>  
     </div>
   );
 };
