@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import './button.scss';
 
 const SideBarButton = (props) => {
-  let userName = useSelector((state) => state.feedPosts[0].user.userName[0]);
+  let userName = useSelector((state) => state.feedPosts[0]?.user?.userName[0]);
   const navigate = useNavigate();
   return (
     <div>
@@ -14,7 +14,7 @@ const SideBarButton = (props) => {
           onClick={() => navigate(`/${props.route}`)}
         >
           <ProfilePicture name={userName} />
-          <p className='content-button-name'>{props.name}</p>
+          <span className='content-button-name'>{props.name}</span>
         </button>
       ) : (
         <button

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App.jsx';
-import { CommentPage } from '../Pages/commentPage/commentPage.jsx';
+import { CommentPage } from '../Pages/CommentPage/CommentPage.jsx';
 import Login from '../Pages/LoginPage/login.jsx';
 import Register from '../Pages/RegisterPage/register.jsx';
 import { UserProfile } from '../Pages/UserProfile/Index.jsx';

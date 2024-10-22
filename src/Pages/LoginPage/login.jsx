@@ -10,7 +10,7 @@ import './login.scss';
 import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(''); 
   const navigate = useNavigate();
 
   const redirect = () => {
@@ -25,10 +25,12 @@ const Login = () => {
 
     axios.get('http://localhost:3030/users').then((response) => {
       const users = response.data.data;
+      console.log(users)
       const profileUser = users.filter((users) => users.email === user.email);
+      console.log(profileUser)
       document.cookie = `user_id = ${profileUser[0]?._id}`;
       if (profileUser.length) {
-        navigate('/');
+        navigate(`/user/${profileUser[0]?._id}`);
       } else {
         alert('enter a valid user');
       }

@@ -1,5 +1,6 @@
 import keyIcon from '../../assets/images/key.png';
 import userIcon from '../../assets/images/user.png';
+import userNameIcon from '../../assets/images/user.svg';
 import instagramIcon from '../../assets/images/logo.svg';
 import './register.scss';
 import { useState } from 'react';
@@ -12,9 +13,16 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
+  const [file,setFile] = useState()
 
   const redirect = () => {
     navigate('/login');
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files) {
+      setFile(e.target.files[0]);
+    }
   };
   const registerUser = () => {
     const user = {
@@ -22,14 +30,20 @@ const Register = () => {
       fullName,
       password,
       email,
+      avatar: file
+
     };
 
-    axios.post('http://localhost:3030/users', user).then((response) => {
+    axios.post('http://localhost:3030/users', user,{
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    }).then((response) => {
       const userId = response.data._id;
 
       document.cookie = `user_id = ${userId}`;
       if (user.email && user.fullName && user.password && user.userName) {
-        navigate('/');
+        navigate(`/user/${userId}`);
       }
     });
 
@@ -68,7 +82,7 @@ const Register = () => {
             />
           </div>
           <div className="inputbox">
-            <img src={keyIcon} className="img-users" />
+            <img src={userNameIcon} className="img-users" />
             <input
               type="text"
               required="true"
@@ -90,6 +104,18 @@ const Register = () => {
               className="input-user"
               onChange={(e) => setUserName(e.target.value)}
             />
+          </div>
+          <div className="inputbox">
+            <div className='file-section'>
+            <input
+              type="file"
+              required="true"
+              id="file"
+              placeholder="email"
+              className="input-user"
+              onChange={(e) => handleFileChange(e)}
+            />
+            </div>
           </div>
           <div className="login-overlay2">
             <input type="checkbox" />
