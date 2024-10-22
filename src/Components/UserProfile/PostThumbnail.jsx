@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+ 
 import { useNavigate } from 'react-router-dom';
 import './PostThumbnail.scss';
 export const PostThumbnail = (props) => {

@@ -24,7 +24,7 @@ export const Post = (props) => {
   const addLike = () => {
     if (!like) {
       axios
-        .post(`http://localhost:3030/likes`, {
+        .post('http://localhost:3030/likes', {
           post: props.postData._id,
           user: user,
         })
@@ -32,10 +32,13 @@ export const Post = (props) => {
           setLike(!like);
         });
     } else {
-      // axios
-      //   .delete(`http://localhost:3030/likes?post=${props._id}&user=${user}`)
-      //   .then((res) => {
-      //   });
+      axios
+        .delete(
+          `http://localhost:3030/likes?post=${props.postData._id}&user=${user}`
+        )
+        .then((res) => {
+          console.log(res.data);
+        });
       setLike(!like);
     }
   };
@@ -59,8 +62,7 @@ export const Post = (props) => {
       <div className='post-image'>
         <img
           src={`data:image/jpeg;base64,${props.postData.postFile}`}
-          height='499px'
-          width='960px'
+          height='450px'
           alt='post-image'
         />
       </div>
